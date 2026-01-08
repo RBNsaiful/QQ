@@ -1,0 +1,9 @@
+{
+  "name": "Copy of ALL OK",
+  "description": "",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
