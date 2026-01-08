@@ -89,7 +89,8 @@ const WatchAdsScreen: FC<WatchAdsScreenProps> = ({ user, texts, onRewardEarned, 
             if (user.adsWatchedInfo?.limitReachedAt) {
                 const now = Date.now();
                 const limitReachedTime = user.adsWatchedInfo.limitReachedAt;
-                const resetDurationMs = resetHours * 60 * 60 * 1000;
+                const resetHoursVal = resetHours || 24;
+                const resetDurationMs = resetHoursVal * 60 * 60 * 1000;
                 const timePassed = now - limitReachedTime;
 
                 if (timePassed >= resetDurationMs) {
@@ -287,7 +288,7 @@ const WatchAdsScreen: FC<WatchAdsScreenProps> = ({ user, texts, onRewardEarned, 
     const progressPercentage = Math.min((currentCount / dailyLimit) * 100, 100);
 
     return (
-        <div className="relative bg-gradient-to-b from-primary to-secondary min-h-screen -mt-16 pt-16 pb-24 text-white">
+        <div className="relative bg-gradient-to-b from-primary to-secondary min-h-screen pt-12 pb-24 text-white">
             {showWebAd && (
                 <VideoAdPlayer 
                     videoUrl={webAdUrl}

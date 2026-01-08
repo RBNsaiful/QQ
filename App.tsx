@@ -71,7 +71,7 @@ const Header: FC<HeaderProps> = ({ appName, logoUrl, logoActive, screen, texts, 
         ranking: texts.ranking, 
     };
 
-    if (screen === 'admin' || screen === 'profile' || screen === 'aiChat' || screen === 'ranking') return null;
+    if (screen === 'admin' || screen === 'profile' || screen === 'aiChat' || screen === 'ranking' || screen === 'watchAds') return null;
 
     const DesktopNavLink = ({ target, label }: { target: Screen, label: string }) => (
         <button 
@@ -220,6 +220,9 @@ const App: FC = () => {
             // Match the Home background color exactly
             const homeBgColor = theme === 'dark' ? '#0F172A' : '#F8FAFC';
             metaThemeColor.setAttribute('content', homeBgColor);
+        } else if (activeScreen === 'watchAds') {
+            // Match the Earn Screen background color
+            metaThemeColor.setAttribute('content', '#7C3AED');
         } else {
             // Revert to primary branding color for other screens
             metaThemeColor.setAttribute('content', '#7C3AED');
